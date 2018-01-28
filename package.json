@@ -1,6 +1,6 @@
 {
   "name": "iota-auth",
-  "version": "1.2.2",
+  "version": "2.0.0",
   "description": "2fa module using iota's tangle as the backend",
   "license": "MIT",
   "repository": "https://github.com/thedewpoint/iotauth.git",
@@ -38,7 +38,6 @@
     "watch:test": "jest --watch"
   },
   "dependencies": {
-    "iota-seed-generator": "^1.0.0",
     "iota.lib.js": "^0.4.6",
     "moment": "^2.20.1"
   },

@@ -38,13 +38,8 @@ import { IotAuth } from 'iota-auth';
 //with require
 const IotAuth = require('iota-auth').IotAuth;
 
-const iotaAuth = new IotAuth();
-//generate a new seed automatically to present to user /store
-let seed = await iotaAuth.getSeed();
 
-//generate a validation code, uses seed generation and takes 6 characters from that. You can also generate your own //validation code, this method is optional to use. All that matters is that you pass in the code you gave the user during //the validation phase
-let code = await iotaAuth.generateValidationCode();
-//returns "ABCDEF"
+
 
 
 //initialize with stored seed / passed seed from user
@@ -52,13 +47,21 @@ const seed ='PBGRWJXOALEOBXNUPCFUNWXSEXMYC9BVLLK9HMUDXNOETYJHSKBHDR9SWAWJIKVPFSB
 const iotaAuth = new IotAuth(seed);
 
 //initialize with stored seed and expiration time (minutes)
-const seed ='PBGRWJXOALEOBXNUPCFUNWXSEXMYC9BVLLK9HMUDXNOETYJHSKBHDR9SWAWJIKVPFSBWNCNSQQJUFUPJM';
 const iotaAuth = new IotAuth(seed, 6);
 //checks whether code was passed within 6 minutes
 
 //pass validation code
 let code = 'LMNOPQ';
 let isValid = await iotaAuth.isTransactionValid(code);
+
+//get the set seed
+let seed = await iotaAuth.getSeed();
+
+
+//generate a validation code, uses seed generation and takes 6 characters from that. You can also generate your own //validation code, this method is optional to use. All that matters is that you pass in the code you gave the user during //the validation phase
+let code = await iotaAuth.generateValidationCode();
+//returns "ABCDEF"
+
 
 //validate without a code
 let isValid = await iotaAuth.isTransactionValid();

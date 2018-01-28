@@ -1,4 +1,3 @@
-import * as iotaSeed from 'iota-seed-generator';
 import * as IOTA from 'iota.lib.js';
 import * as moment from 'moment';
 import { IIotAuth } from '../api/iotauth-api';
@@ -47,7 +46,8 @@ export class IotAuth implements IIotAuth {
   }
   public async getSeed(): Promise<string> {
     if (!this.receiveSeed) {
-      this.receiveSeed = await this.generateNewSeed();
+      // this.receiveSeed = await this.generateNewSeed();
+      throw new Error("no seed");
     }
     return this.receiveSeed;
   }
@@ -86,10 +86,10 @@ export class IotAuth implements IIotAuth {
     const diff: number = now.diff(transactionTime, 'minutes');
     return diff <= this.duration;
   }
-  private async generateNewSeed(): Promise<string> {
-    const seed: string = await iotaSeed();
-    return seed;
-  }
+  // private async generateNewSeed(): Promise<string> {
+  //   const seed: string = await iotaSeed();
+  //   return seed;
+  // }
 
   private async getAccountData(seed: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
