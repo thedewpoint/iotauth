@@ -15,11 +15,11 @@ test('Should create an Iota Client with sanbox node by default', () => {
 //   let seed = await iotaAuth.getSeed();
 //   expect(iotaAuth.iotaClient.valid.isTrytes(seed, 81)).toBe(true);
 // });
-test('Should generate a verification code', async () => {
-  const iotaAuth = new IotAuth();
-  let code = await iotaAuth.generateValidationCode();
-  expect(iotaAuth.iotaClient.valid.isTrytes(code, 6)).toBe(true);
-});
+// test('Should generate a verification code', async () => {
+//   const iotaAuth = new IotAuth();
+//   let code = await iotaAuth.generateValidationCode();
+//   expect(iotaAuth.iotaClient.valid.isTrytes(code, 6)).toBe(true);
+// });
 test('Should set the seed if provided', async () => {
   const seed =
     'PBGRWJXOALEOBXNUPCFUNWXSEXMYC9BVLLK9HMUDXNOETYJHSKBHDR9SWAWJIKVPFSBWNCNSQQJUFUPJM';

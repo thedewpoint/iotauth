@@ -47,14 +47,14 @@ export class IotAuth implements IIotAuth {
   public async getSeed(): Promise<string> {
     if (!this.receiveSeed) {
       // this.receiveSeed = await this.generateNewSeed();
-      throw new Error("no seed");
+      throw new Error('no seed');
     }
     return this.receiveSeed;
   }
-  public async generateValidationCode(): Promise<string> {
-    const seed: string = await iotaSeed();
-    return seed.slice(0, 6);
-  }
+  // public async generateValidationCode(): Promise<string> {
+  //   const seed: string = await iotaSeed();
+  //   return seed.slice(0, 6);
+  // }
   private async getNewAddresses(
     seed: string,
     options: any = { index: 0, returnAll: true }
