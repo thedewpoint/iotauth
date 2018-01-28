@@ -25,6 +25,8 @@ This module uses iota-seed-generator to generate iota seeds. It appears this mod
 related issue: https://github.com/bmavity/iota-seed-generator/issues/1
 
 
+NOTE: as of 2.0.0 seed generation and code generation have been removed and the responsibility will be on the consumer of this module.
+
 Using npm:
 ```shell
 $ npm i --save iota-auth
@@ -57,10 +59,6 @@ let isValid = await iotaAuth.isTransactionValid(code);
 //get the set seed
 let seed = await iotaAuth.getSeed();
 
-
-//generate a validation code, uses seed generation and takes 6 characters from that. You can also generate your own //validation code, this method is optional to use. All that matters is that you pass in the code you gave the user during //the validation phase
-let code = await iotaAuth.generateValidationCode();
-//returns "ABCDEF"
 
 
 //validate without a code
